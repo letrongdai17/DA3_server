@@ -26,7 +26,6 @@ class CategoryConroller
     public function getCategoryProducts(Request $request)
     {
         $categoryProducts = $this->categoryService->getCategoryProducts($request->id);
-
         return response()->json($categoryProducts, 200);
     }
 }

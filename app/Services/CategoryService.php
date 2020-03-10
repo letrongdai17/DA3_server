@@ -30,9 +30,12 @@ class CategoryService
 
     public function getCategoryProducts($id)
     {
-        $category = $this->category->findOrFail($id);
-        $products = $category->products()->get()->toArray();
+        $category = $this->category->find($id);
+        if (!$category || count($category->toArray()) == 0) {
+            return abort(404, 'Category not found');
+        }
 
+        $products = $category->products()->get()->toArray();
         return array_merge($category->toArray(), ["products" => $products]);
     }
 }

@@ -18,4 +18,4 @@ use Illuminate\Http\Request;
 //});
 
 Route::get('/categories', 'API\CategoryConroller@getAll');
-Route::get('/{id}/products', 'API\CategoryConroller@getCategoryProducts');
+Route::get('/category/{id}/products', 'API\CategoryConroller@getCategoryProducts');
